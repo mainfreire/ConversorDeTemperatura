@@ -1,0 +1,50 @@
+pipeline {
+    agent any
+    
+    tools {
+        ESlint 'ESlint 8.51.0'
+    }
+
+    stages {
+        stage('Checkout'){
+            steps {
+                git url: 'https://github.com/mainfreire/ConversorDeTemperatura.git' branch: 'main'
+            }
+        }
+        
+       stage('Lint') {
+            steps {
+                sh 'npx eslint .'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                sh 'npm test'
+            }
+        }
+        
+        stage('Unnit Tests') {
+            steps {
+                sh 'npm test -- --coverage'
+
+                archiveArtifacts artifacts: 'coverage/**/lcov-report', allowEmptyArchive: true
+            }
+             post {
+                always {
+                    step([$class: 'JUnitPublisher', testResults: '**/test-results.xml'])
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'A pipeline foi bem-sucedida!'
+        }
+
+        failure {
+            echo 'A pipeline falhou.'
+        }
+    }
+}

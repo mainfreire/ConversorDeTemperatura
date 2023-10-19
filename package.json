@@ -1,0 +1,19 @@
+{
+    "name": "temperature-converter",
+    "version": "1.0.0",
+    "description": "Conversões de Temperatura C e F",
+    "main": "temperature-converter.js",
+    "scripts": {
+        "test": "jest"       
+    },
+    "author": "Amanda",
+    "license": "MIT",
+    "engines": {
+        "node": "14"
+    },
+    "devDependencies": {
+        "eslint": "^8.51.0",
+        "eslint-config-google": "^0.14.0",
+        "jest": "^27.0.0"
+    }
+}
