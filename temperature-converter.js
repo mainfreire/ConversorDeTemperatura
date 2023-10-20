@@ -5,7 +5,7 @@ function celsiusToFahrenheit(celsius) {
   return (celsius * 9/5) + 32;
 }
 
-function fahrenheitToCelsius erroNoCódigo (fahrenheit) {
+function fahrenheitToCelsius(fahrenheit) {
   if (fahrenheit === null) {
     throw new Error('The Fahrenheit value cannot be null');
   }
