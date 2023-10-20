@@ -6,6 +6,6 @@ test('Celsius to Fahrenheit', () => {
 });
 test('Fahrenheit to Celsius', () => {
   expect(fahrenheitToCelsius(32)).toBe(0);
-  expect(fahrenheitToCelsius(212)).toBe(19);
+  expect(fahrenheitToCelsius(212)).toBe(100);
   expect(() => fahrenheitToCelsius(null)).toThrow('The Fahrenheit value cannot be null');
 });
